@@ -19,6 +19,7 @@ var vid = document.getElementById("mp3");
       var covs = self.find(".cover");
       if (day == 25) {
         $('<div class="all"></div>').appendTo('body');
+        $('<script type="text/javascript" src="js/mouseSnow.js"></script>').appendTo('body');
       }
     });
   });

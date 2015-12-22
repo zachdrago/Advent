@@ -17,7 +17,7 @@ var vid = document.getElementById("mp3");
       vid.volume = 1.00;
       var self = $(this);
       var covs = self.find(".cover");
-      if (day == 19) {
+      if (day == 22) {
         $('<div class="all"></div>').appendTo('body');
       }
     });

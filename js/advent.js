@@ -17,7 +17,7 @@ var vid = document.getElementById("mp3");
       vid.volume = 1.00;
       var self = $(this);
       var covs = self.find(".cover");
-      if (day == 22) {
+      if (day == 25) {
         // $('<script type="text/javascript" src="js/mouseSnow.js"></script>').appendTo('head');
         $('<div class="all"></div>').appendTo('body');
       }
@@ -46,7 +46,7 @@ var dayNames = ["Sunday",
               "Saturday"];
 
 var newDate = new Date();
-newDate.setDate(newDate.getDate() +6);    
+newDate.setDate(newDate.getDate());    
 $('#date').html(dayNames[newDate.getDay()] + " " + monthNames[newDate.getMonth()] + ' ' + newDate.getDate() + ', ' + newDate.getFullYear());
 
 var day = newDate.getDate();

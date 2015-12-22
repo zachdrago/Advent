@@ -1,1 +1,501 @@
-“Hello, world”
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Advent Kylendar</title>
+<style>
+* {
+  box-sizing: border-box;
+  zoom: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  max-height: 2100px;
+  margin: 0;
+  padding: 0;
+  background: #0C2037;
+  box-sizing: border-box;
+}
+.headd {
+  height: 800px;
+  background: URL('img/xmas_head.png') no-repeat;
+  background-size: cover;
+  background-position: top center;
+  overflow: hidden;
+}
+#date {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 100;
+  color: #fff;
+  font-size: 22px;
+  width: 320px;
+  margin: 0 auto;
+}
+#mp3 {
+  display: none;
+}
+.pause {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  top: 4px;
+  left: 4px;
+  z-index: 5000;
+}
+.play {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  top: 26px;
+  left: 4px;
+  z-index: 5000;
+}
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.all {
+  background: url('img/snowFall.gif');
+  background-size: 500px 500px;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2550px;
+  z-index: 10000;
+  pointer-events: none;
+}
+.grid {
+  width: 100%;
+  max-width: 1000px;
+  max-height: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 10;
+}
+.grid-item {
+  width: 200px;
+  max-height: 200px;
+  margin: 0;
+  color: #333;
+  text-align: right !important;
+  font-size: 32px;
+  text-align: right;
+  font-family: sans-serif;
+  background: #F2E3BD;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.grid-item p {
+  margin: 0;
+  padding: 6px 10px 0 0 ;
+}
+
+img.filler {
+  position: relative;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+.grid-item--width2 {
+  width: 400px;
+  max-height: 400px;
+  text-align: center:
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.cover {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #0D2036;
+  text-align: center !important;
+  font-size: 52px;
+  font-family: sans-serif;
+  padding: 70px 0 0 0 !important;
+  background: #F2E2BF;
+}
+.cover p {
+  margin: 0;
+  padding: 0;
+}
+
+
+.green {
+  background: #488164;
+  color: #F2E2C1;
+  text-align: right;
+}
+.red {
+  background: #CD5047;
+  color: #F2E2C1;
+  text-align: right;
+}
+
+.width2 {
+  font-size: 102px !important;
+  padding-top: 140px !important;
+}
+
+.locked {
+  background-image: url('img/locked.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 60px;
+  z-index: 3000;
+}
+.locked p {
+  text-align: center;
+  margin: 0;
+  opacity: .4;
+}
+.unlocked {
+  pointer-events: auto;
+}
+.today {
+  background-image: url('img/lights.png');
+  background-size: 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+img.appstore:hover {
+  opacity: 1.0 !important;
+}
+#replay img:hover {
+  opacity: 1.0 !important;
+}
+</style>
+</head>
+<body>
+  
+  <div class="headd" style="width: 100%; display: inline-block;">
+    <div class="pause">
+      <img id="pause" onclick="pauseVid()" src="img/pause.png" width="100%">
+    </div>
+    <div class="play">
+      <img id="play" onclick="playVid()" src="img/play.png" width="100%">
+    </div>
+    
+    <div style="width: 100%; display: inline-block;">
+    <img style="visibility: hidden; width: 100%; max-height: 740px; min-height: 720px;" src="img/spacer.png" />
+      <div id="date"></div>
+    </div>
+    
+    <img src="img/xmas_head.png" style="width: 100%; visibility: hidden;">
+    
+    <audio id="mp3" controls autoplay>
+      <source src="audio/rdc-song.mp3">
+    </audio>
+  </div>
+  
+<div class="container">
+   <div class="grid">
+      <div style="background: #0C2037;" class="grid-item grid-item--width2" id="1">
+         <p>1 (filled)</p><img class="filler" src="img/400.jpg">
+        <iframe src="frame.html" frameborder="0" width="400px;" height="400px;" style="position: absolute; top: 0; left: 0;"></iframe>
+        <p style="color: #F2E2C1; position: absolute; top: 0; right: 0;">1</p>
+        <div class="cover width2 green"><p>1</p></div>`
+      </div>
+     
+     <div class="grid-item" id="2" style="background: url('img/squirrel.gif') center center; background-size: cover;">
+         <img class="filler" src="img/200.jpg">
+       <p style="color: #F2E2C1; position: absolute; top: 0; right: 0;">2</p>
+       <div class="cover"><p>2</p></div>
+      </div>
+     
+     <div class="grid-item grid-item--width2 red" id="3">
+         <img class="filler" src="img/400.jpg">
+       <div style="width:400px; height:400px; position: absolute; top: 0; left: 0; background: #1F4050 url('img/pent.jpg'); background-size: cover;">
+         <iframe src="pent.html" width="400" height="412" frameborder="0" scrolling="no" style="margin-top: -12px"></iframe>
+</div>
+       <p style="color: #F2E2C1;position: absolute; top: 0; right: 0;">3</p>
+       <div class="cover width2 red"><p>3</p></div>
+      </div>
+     
+     <div style="width: 400px;" class="grid-item red" id="4">
+         <p>4</p><img class="filler" src="img/400w.jpg">
+       <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JmA1HP4uqZs?showinfo=0&controls=0" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
+       <p style="color: #0D2036; text-shadow: 0px 2px 4px RGBA(242, 226, 193, .7); position: absolute; top: 0; right: 0;">4</p>
+       <div class="cover red"><p>4</p></div>
+      </div>
+     
+      <div class="grid-item red" id="5">
+      <img src="img/antlers.gif" style="width: 90%; position: absolute; top: 10px; left: 10px;">
+         <p>5</p><img class="filler" src="img/200.jpg">
+         <p style="color: #F2E2C1; position: absolute; top: 0; right: 0;">5</p>
+        <div class="cover red"><p>5</p></div>
+      </div>
+     
+      <div class="grid-item" id="6" style="background: url('img/globe.gif') center center; background-size: cover;">
+         <p style="color: #F2E2C1; text-shadow: 0px 2px 4px RGBA(13, 32, 54, .7);">6</p><img class="filler" src="img/200.jpg">
+        <div class="cover"><p>6</p></div>
+      </div>
+
+     <div class="grid-item green" id="7">
+     <img src="img/golf.gif" style="width: 90%; position: absolute; top: 10px; left: 10px;">
+         <p>7</p><img class="filler" src="img/200.jpg">
+         <p style="color: #F2E2C1; position: absolute; top: 0; right: 0;">7</p>
+       <div class="cover green"><p>7</p></div>
+      </div>
+     
+      <div class="grid-item" id="8" style="background:url('img/pug2.jpg'); background-size: 100%;">
+         <p>8</p><img class="filler" src="img/200.jpg">
+        <div class="cover"><p style="text-shadow: 0px 2px 4px RGBA(242, 226, 193, .7);">8</p></div>
+      </div>
+     
+      <div class="grid-item" id="9" style="background:url('img/santac.png'); background-size: 100%;">
+         <p>9</p><img class="filler" src="img/200.jpg">
+         <div class="9box" id="replay" style="position: absolute; top: 0; left: 0;"><img src="https://i.imgur.com/yYtbBKh.png" style="width: 100%; opacity: .8;"></div>
+         <div id="lightbox" style="display: none; width: 800px; height: 500px; background: #F2E2C1;"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/kmD-JNEVqCE?showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe></div>
+         <p style="color: #F2E2C1; position: absolute; top: 0; right: 0;">9</p>
+        <div class="cover 9box"><p>9</p></div>
+      </div>
+     
+      <div style="width: 400px;" class="grid-item green" id="10">
+         <p>10 (filled)</p><img class="filler" src="img/400w.jpg">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HS1-38ivPhk?autoplay=0&showinfo=0&controls=0" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
+        <p style="color: #F2E2C1; text-shadow: 0px 2px 4px RGBA(13, 32, 54, .7); position: absolute; top: 0; right: 0;">10</p>
+        <div class="cover green"><p>10</p></div>
+      </div>
+     
+      <div style="width: 400px;" class="grid-item red" id="11">
+         <p>11 (filled)</p><img class="filler" src="img/400w.jpg">
+         <iframe src="dusty.html" width="400px" height="212px" frameborder="0" scrolling="no" style="position: absolute; top: -12px; left: 0;"></iframe>
+         <p style="color: #0D2036; position: absolute; top: 0; right: 0;">11</p>
+        <div class="cover red"><p>11</p></div>
+      </div>
+     
+      <div style="width: 400px; background: #0D2036;" class="grid-item" id="12">
+        <p>12</p><img class="filler" src="img/400w.jpg">
+        <iframe src="https://player.vimeo.com/video/149284095?color=4A8065&title=0&byline=0&portrait=0" width="400" height="200" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
+        <p style="color: #F2E2C1; text-shadow: 0px 2px 4px RGBA(13, 32, 54, .7); position: absolute; top: 0; right: 0;">12</p>
+        <div class="cover red"><p>12</p></div>
+      </div>
+     
+      <div style="width: 400px; background:url('img/KyleSanta.png'); background-size: 100%; background-position: center center;" class="grid-item" id="13">
+         <p style="color: #F2E2C1; text-shadow: 0px 2px 4px RGBA(13, 32, 54, .7);">13</p>
+         <img class="filler" src="img/400w.jpg">
+        <div class="cover"><p>13</p></div>
+      </div>
+     
+      <div class="grid-item green" id="14">
+         <p>14</p><img class="filler" src="img/200.jpg">
+         <img src="img/reindeer.jpg" style="width: 90%; position: absolute; top: 10px; left: 10px;">
+         <p style="color: #0D2036; text-shadow: 0px 2px 4px RGBA(242, 226, 193, .7); position: absolute; top: 0; right: 0;">14</p>
+        <div class="cover green"><p>14</p></div>
+      </div>
+     
+      <div class="grid-item grid-item--width2" id="15" style="background: #0D2036;">
+         <p>15 (filled)</p><img class="filler" src="img/400.jpg">
+        <iframe src="LetItSnow.html" frameborder="0" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></iframe>
+        <div class="cover width2"><p>15</p></div>
+      </div>
+     
+     <div class="grid-item green" id="16">
+         <p>16</p><img class="filler" src="img/200.jpg">
+         <img src="img/santaceramic.jpg" style="width: 90%; position: absolute; top: 10px; left: 10px;">
+         <p style="color: #F2E2C1; position: absolute; top: 0; right: 0;">16</p>
+       <div class="cover green"><p>16</p></div>
+      </div>
+     
+     <div style="width: 400px;" class="grid-item red" id="17" style="background:url('img/pug3.jpg'); background-size: 100%;">
+         <p>17</p><img class="filler" src="img/400w.jpg">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/_QWMwT2ujR4?showinfo=0&controls=0" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
+          <p style="color: #0D2036; position: absolute; top: 0; right: 0;">17</p>
+       <div class="cover red"><p>17</p></div>
+      </div>
+     
+      <div style="width: 400px;" class="grid-item red" id="18">
+        <p>18</p><img class="filler" src="img/400w.jpg">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/EauL1-QBeYw?showinfo=0&controls=0" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
+        <p style="color: #F2E2C1; text-shadow: 0px 2px 4px RGBA(13, 32, 54, .7); position: absolute; top: 0; right: 0;">18</p>
+        <div class="cover red"><p>18</p></div>
+      </div>
+     
+      <div style="width: 400px;" class="grid-item red" id="19">
+         <p>19 (filled)</p><img class="filler" src="img/400w.jpg">
+        <iframe src="classics.html" width="400px" height="212px" frameborder="0" scrolling="no" style="position: absolute; top: -12px; left: 0;"></iframe>
+        <p style="color: #0D2036; position: absolute; top: 0; right: 0;">19</p>
+        <div class="cover red"><p>19</p></div>
+      </div>
+     
+     <div class="grid-item green" id="20" style="background:url('img/pug1.jpg'); background-size: 100%;">
+         <p>20</p><img class="filler" src="img/200.jpg">
+       <div style="color: #F2E2C1;" class="cover green"><p>20</p></div>
+      </div>
+     
+      <div class="grid-item red" id="21">
+         <p>21</p><img class="filler" src="img/200.jpg">
+         <img src="img/fire.gif" style="width: 90%; position: absolute; top: 10px; left: 10px;">
+         <p style="color: #F2E2C1; position: absolute; top: 0; right: 0;">21</p>
+        <div class="cover green"><p>21</p></div>
+      </div>
+     
+     <div style="width: 400px;" class="grid-item" id="22">
+         <p>22</p><img class="filler" src="img/400w.jpg">
+       <iframe width="100%" height="100%" src="https://www.youtube.com/embed/N45BtllAUw8?showinfo=0&controls=0" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>
+       <p style="color: #F2E2C1; text-shadow: 0px 2px 4px RGBA(13, 32, 54, .7); position: absolute; top: 0; right: 0;">22</p>
+       <div class="cover"><p>22</p></div>
+      </div>
+     
+      <div class="grid-item green" id="23">
+         <p>23</p><img class="filler" src="img/200.jpg">
+         <img src="img/mario.gif" style="width: 100%; position: absolute; top: 0; left: 0;">
+         <p style="color: #F2E2C1; position: absolute; top: 0; right: 0;">23</p>
+        <div class="cover green"><p>23</p></div>
+      </div>
+     
+     <div style="width: 400px; background: url('img/tree.gif'); background-size: 100% 100%;" class="grid-item" id="24">
+         <p style="color: #F2E2C1; position: absolute; top: 0; right: 0;">24</p><img class="filler" src="img/400w.jpg">
+       <div class="cover"><p>24</p></div>
+      </div>
+     
+     <div style="width: 400px; background: url('img/merry.gif'); background-size: 100% 100%;" class="grid-item red" id="25">
+       <p>25</p><img class="filler" src="img/400w.jpg">
+       <div id="snow" class="cover red"><p>25</p></div>
+      </div>
+   </div>
+</div>
+  
+  
+  
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
+<script src="js/lightbox_me.js"></script>
+<script src="js/let-it-snow.min.js"></script>
+
+<script>
+  $(function(){
+    $('.grid').masonry({
+  //options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+  });
+</script>
+      
+<script>
+var vid = document.getElementById("mp3");
+
+  $(function() {
+    var newDate = new Date();
+    var day = newDate.getDate();
+    
+    $("#snow").click(function(){
+      vid.volume = 1.00;
+      var self = $(this);
+      var covs = self.find(".cover");
+      if (day == 19) {
+        $('<div class="all"></div>').appendTo('body');
+      }
+    });
+  });
+</script>
+  
+<script>
+var monthNames = ["January",
+                  "February",
+                  "March",
+                  "April",
+                  "May",
+                  "June",
+                  "July",
+                  "August",
+                  "September",
+                  "October",
+                  "November",
+                  "December" ];
+var dayNames = ["Sunday",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"];
+
+var newDate = new Date();
+newDate.setDate(newDate.getDate() +10);    
+$('#date').html(dayNames[newDate.getDay()] + " " + monthNames[newDate.getMonth()] + ' ' + newDate.getDate() + ', ' + newDate.getFullYear());
+
+var day = newDate.getDate();
+
+
+$(function() {
+  $(".grid-item").each(function(){
+    var self = $(this);
+    var covs = self.find(".cover");
+    if (self.attr('id') > day) {
+        covs.addClass('locked');
+    }
+    else {
+      covs.addClass('unlocked');
+    }
+  });
+});
+
+$(function() {
+  $(".grid-item").each(function(){
+    var self = $(this);
+    var covs = self.find(".cover");
+    if (self.attr('id') == day) {
+        covs.addClass("today");
+    }
+  });
+});
+
+$('.9box').click(function(e) {
+  $('#lightbox').lightbox_me({
+        centered: true,
+        showOverly: true,
+        overlayCSS: {background: 'black', opacity: 0.9},
+        closeEsc: true,
+        closeClick: true,
+        lightboxSpeed: "medium",
+        });
+    e.preventDefault();
+});
+
+
+$('.grid-item').hover(function() {
+    $(".grid-item").each(function(){
+      var self = $(this);
+      if (self.attr('id') <= day) {
+        $('.grid-item').click(function() {
+          $('.unlocked',
+           $(this)).stop().animate({left: '-500px'}, 500);
+        });
+      }
+    });
+});
+
+
+var vid = document.getElementById("mp3");
+var played = document.getElementById("play");
+var paused = document.getElementById("pause");
+vid.volume = 0.03;
+
+function pauseVid() {
+  vid.pause();
+  paused.style.opacity = 0.4;
+  played.style.opacity = 1.0;
+}
+function playVid() {
+  vid.play();
+  played.style.opacity = 0.4;
+  paused.style.opacity = 1.0;
+}
+
+</script>
+</body>
+</html>

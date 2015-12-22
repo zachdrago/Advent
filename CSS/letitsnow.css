@@ -11,7 +11,7 @@ body {
     padding: 0;
 }
 .let-it-snow {
-  background: url("bg.png") center center;
+  background: url("../img/bg.png") center center;
   background-size: cover;
   overflow: hidden;
   width: 400px;
@@ -19,7 +19,7 @@ body {
   float: left;
 }
 .tree {
-    background: url("tree.png") center center;
+    background: url("../img/tree.png") center center;
     background-size: cover;
     overflow: hidden;
     width: 400px;
@@ -38,7 +38,7 @@ p {
 }
 
 .all {
-  background: url('img/snowFall.gif');
+  background: url('../img/snowFall.gif');
   background-size: 400px 400px;
   opacity: .5;
   position: absolute;

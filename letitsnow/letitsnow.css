@@ -1,3 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+  background: #000;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+.let-it-snow {
+  background: url("img/bg.png") center center;
+  background-size: cover;
+  overflow: hidden;
+  width: 400px;
+  height: 400px;
+  float: left;
+}
+.tree {
+    background: url("img/tree.png") center center;
+    background-size: cover;
+    overflow: hidden;
+    width: 400px;
+    height: 400px;
+    float: left;
+}
+
+p {
+  color: #fff;
+  text-align: right !important;
+  font-size: 32px;
+  text-align: right;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 6px 10px 0 0 ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .let-it-snow { position: relative }
 

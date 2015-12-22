@@ -14,7 +14,7 @@ body {
 .headd {
     overflow: hidden;
     height: 800px;
-    background: URL('img/xmas_head.png') no-repeat;
+    background: URL('../img/xmas_head.png') no-repeat;
     background-position: top center;
     background-size: cover;
 }
@@ -60,7 +60,7 @@ body {
     height: 2550px;
     pointer-events: none;
     opacity: .5;
-    background: url('img/snowFall.gif');
+    background: url('../img/snowFall.gif');
     background-size: 500px 500px;
 }
 .grid {
@@ -138,7 +138,7 @@ img.filler {
 }
 .locked {
     z-index: 3000;
-    background-image: url('img/locked.png');
+    background-image: url('../img/locked.png');
     background-repeat: no-repeat;
     background-position: top right;
     background-size: 60px;
@@ -152,7 +152,7 @@ img.filler {
     pointer-events: auto;
 }
 .today {
-    background-image: url('img/lights.png');
+    background-image: url('../img/lights.png');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: 100%;

@@ -20,6 +20,7 @@ var vid = document.getElementById("mp3");
       if (day == 25) {
         // $('<script type="text/javascript" src="js/mouseSnow.js"></script>').appendTo('head');
         $('<div class="all"></div>').appendTo('body');
+        $(*).addClass('cursor');
       }
     });
   });

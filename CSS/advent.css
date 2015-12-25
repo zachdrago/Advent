@@ -62,7 +62,7 @@ body {
     opacity: .5;
     background: url('../img/snowFall.gif');
     background-size: 500px 500px;
-    cursor: url('img/small_tree.gif');
+    cursor:url(img/small_tree.gif), auto !important;
 }
 .grid {
     z-index: 10;

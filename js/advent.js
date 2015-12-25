@@ -14,13 +14,12 @@ var vid = document.getElementById("mp3");
     var day = newDate.getDate();
     
     $("#snow").click(function(){
-      vid.volume = 1.00;
       var self = $(this);
       var covs = self.find(".cover");
       if (day == 25) {
-        // $('<script type="text/javascript" src="js/mouseSnow.js"></script>').appendTo('head');
+        vid.volume = 1.00;
         $('<div class="all"></div>').appendTo('body');
-        $(*).addClass('cursor');
+        $('div').addClass('cursor');
       }
     });
   });
